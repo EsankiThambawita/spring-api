@@ -45,7 +45,7 @@ public class AuthService {
         if(!user.getPassword().equals(loginRequest.getPassword())){
             throw new RuntimeException("Invalid password");
         }
-        return "Login Successful !"
+        return "Login Successful !";
     }
 
 

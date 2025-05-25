@@ -1,5 +1,6 @@
 package com.example.spring_api.controller;
 
+import com.example.spring_api.dto.LoginRequest;
 import com.example.spring_api.dto.RegisterRequest;
 import com.example.spring_api.service.AuthService;
 import jakarta.validation.Valid;
@@ -23,6 +24,12 @@ public class AuthController {
     public ResponseEntity <String> register(@Valid @RequestBody RegisterRequest registerRequest){
         authService.register(registerRequest);
         return ResponseEntity.ok("User registered successfully");
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity <String> login(@Valid @RequestBody LoginRequest loginRequest){
+        String message = authService.login(loginRequest);
+        return ResponseEntity.ok(message);
     }
 }
 
